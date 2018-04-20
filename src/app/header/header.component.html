@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>Resa</span>
+  <span class="spacer"></span>
+  <div class="button-row">
+    <a mat-button [ngClass]="{'active': url === '/dashboard'}" routerLink="/dashboard">Dashboard</a>
+    <a mat-button [ngClass]="{'active': url === '/reservations'}" routerLink="/reservations">Reservation</a>
+    <a mat-button [ngClass]="{'active': url === '/configuration'}" routerLink="/configuration">Configuration</a>
+  </div>
+</mat-toolbar>
