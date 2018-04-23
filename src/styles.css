@@ -4,3 +4,7 @@
 body {
   margin: 0;
 }
+
+.main-content {
+  margin: 16px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Structure, PricedInterval } from '../resa.service';
 
 @Component({
   selector: 'app-configuration',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationComponent implements OnInit {
 
+  public curr: Structure = {
+    description: "",
+    id: "",
+    name: "",
+    opened: [],
+  };
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCreated(data: PricedInterval) {
+    console.log("HERE !", data);
+    this.curr.opened.push(data);
   }
 
 }

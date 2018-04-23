@@ -1,0 +1,59 @@
+<form #ruleForm="ngForm" (submit)="create()">
+  <div class="hform">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker1" placeholder="De" [(ngModel)]="curr.when.from" name="from">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="À" [(ngModel)]="curr.when.to" name="to">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 [startAt]="curr.when.from"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Seulement les" [(ngModel)]="curr.dayOfWeek" name="dayOfWeek">
+        <mat-option value="1">Lundi</mat-option>
+        <mat-option value="2">Mardi</mat-option>
+        <mat-option value="3">Mercredi</mat-option>
+        <mat-option value="4">Jeudi</mat-option>
+        <mat-option value="5">Vendredi</mat-option>
+        <mat-option value="6">Samedi</mat-option>
+        <mat-option value="7">Dimanche</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="hform">
+    <span>De</span>
+    <mat-form-field class="hour">
+      <input type="number" matInput [(ngModel)]="curr.during.from.hour" min="0" max="23" name="hstart">
+    </mat-form-field>
+    <span>Heures</span>
+    <mat-form-field class="hour">
+      <input type="number" matInput [(ngModel)]="curr.during.from.minute" min="0" max="59" name="mstart">
+    </mat-form-field>
+
+    <span class="spacer"></span>
+    <span>À</span>
+    <span class="spacer"></span>
+
+    <mat-form-field class="hour">
+      <input type="number" matInput [(ngModel)]="curr.during.to.hour" [min]="curr.during.from.hour" max="23" name="hstart">
+    </mat-form-field>
+    <span>Heures</span>
+    <mat-form-field class="hour">
+      <input type="number" matInput [(ngModel)]="curr.during.to.minute" min="0" max="59" name="mstart">
+    </mat-form-field>
+  </div>
+
+  <div class="hform">
+    <mat-form-field class="price">
+      <input type="number"  [(ngModel)]="curr.price" name="price" matInput min="0" placeholder="Prix (€/h)">
+    </mat-form-field>
+  </div>
+
+  <button mat-button type="submit" color="primary">Ajouter</button>
+  <span>{{ error }}</span>
+</form>

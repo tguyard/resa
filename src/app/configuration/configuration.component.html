@@ -1,5 +1,59 @@
 <app-header></app-header>
 
-<p>
-  configuration works!
-</p>
+<div class="main-content">
+
+<mat-drawer-container >
+  <mat-drawer mode="side" opened="true">
+    <div class="left-col">Drawer content</div>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+
+
+  <h3>Structures</h3>
+  <mat-card>
+    <div class="vform">
+      <mat-form-field>
+        <input matInput [(ngModel)]="curr.name" placeholder="Nom">
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <textarea matInput [(ngModel)]="curr.description" placeholder="Description"></textarea>
+      </mat-form-field> -->
+    </div>
+  </mat-card>
+
+  <h3>Periodes d'ouverture</h3>
+
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let period of curr.opened">
+        <span>Du <em>{{period.when.from  | date:'fullDate'}}</em> au <em>{{period.when.to | date:'fullDate'}}</em> </span>
+        <span *ngIf="period.dayOfWeek != null">&nbsp;(les <span [ngSwitch]="period.dayOfWeek">
+          <span *ngSwitchCase="1">lundis)</span>
+          <span *ngSwitchCase="2">mardis)</span>
+          <span *ngSwitchCase="3">mercredis)</span>
+          <span *ngSwitchCase="4">jeudis)</span>
+          <span *ngSwitchCase="5">vendredis)</span>
+          <span *ngSwitchCase="6">samedis)</span>
+          <span *ngSwitchCase="7">dimanches)</span></span>
+        </span>
+        <span>&nbsp;ouvert de {{period.during.from.hour}}h{{period.during.from.minute}} </span>
+        <span>&nbsp;à {{period.during.to.hour}}h{{period.during.to.minute}} </span>
+        <span>&nbsp;Pour {{period.price}}€/heure</span>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+
+  <mat-card>
+    <app-priced-interval (created)="onCreated($event)" ></app-priced-interval>
+  </mat-card>
+
+</div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StructuresComponent } from './structures.component';
+import { PricedIntervalComponent } from './priced-interval.component';
 
-describe('StructuresComponent', () => {
-  let component: StructuresComponent;
-  let fixture: ComponentFixture<StructuresComponent>;
+describe('PricedIntervalComponent', () => {
+  let component: PricedIntervalComponent;
+  let fixture: ComponentFixture<PricedIntervalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StructuresComponent ]
+      declarations: [ PricedIntervalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StructuresComponent);
+    fixture = TestBed.createComponent(PricedIntervalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
